@@ -1,0 +1,13 @@
+'use strict';
+
+module.exports = ({
+  divide,
+  green,
+  yellow,
+  white,
+  black,
+  red,
+  blue,
+}) => ({
+$SECTIONS$
+});
