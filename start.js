@@ -1,17 +1,14 @@
 'use strict';
 
-const path = require('path');
+const Module = require('./helpers/module');
 const runModuleConfig = require('./config/run-module');
-const validateArgs = require('./helpers/validate-args');
+const validateStartParams = require('./helpers/validate-start-params');
 const execModule = require('./helpers/execute-module');
-const {
-  SOURCE_PATH
-} = require('./config/constants');
 
-const [,, moduleName, sectionName] = process.argv;
-validateArgs(moduleName, sectionName);
+const [,, moduleName, ...sectionNames] = process.argv;
+validateStartParams(moduleName, ...sectionNames);
 
-const modulePath = path.resolve(SOURCE_PATH, moduleName);
+const moduleFile = Module.require(moduleName);
 
-const mod = require(modulePath)(runModuleConfig);
-execModule(mod, moduleName, sectionName);
+const moduleObj = moduleFile(runModuleConfig);
+execModule(moduleObj, moduleName, ...sectionNames);

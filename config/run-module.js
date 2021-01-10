@@ -8,7 +8,7 @@ const {
   black,
   red,
   blue,
-} = require('../helpers/common');
+} = require('../helpers/output');
 
 module.exports = {
   divide: divideLine,

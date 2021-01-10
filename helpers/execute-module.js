@@ -4,19 +4,20 @@ const {
   divideModule,
   divideSection,
   emptyLine,
-} = require('./common');
+} = require('./output');
 
-module.exports = (mod, moduleName, sectionName) => {
+module.exports = (moduleObj, moduleName, ...sectionNames) => {
   divideModule(moduleName);
   emptyLine();
-  if (sectionName) {
-    divideSection(moduleName, sectionName);
-    mod[sectionName]();
-  } else {
-    const sections = Object.keys(mod);
-    sections.forEach(section => {
-      divideSection(moduleName, section);
-      mod[section]();
-    });
+
+  let sections = Object.keys(moduleObj);
+  if (sectionNames.length) {
+    sections = sections.filter(section => sectionNames.includes(section));
   }
+
+  sections.forEach(section => {
+    divideSection(moduleName, section);
+    moduleObj[section]();
+    emptyLine();
+  });
 };

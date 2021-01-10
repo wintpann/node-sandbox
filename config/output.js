@@ -1,6 +1,6 @@
 'use strict';
 
-const COLOR =  {
+const COLORS =  {
   BLACK: '\x1b[30m',
   RED: '\x1b[31m',
   GREEN: '\x1b[32m',
@@ -14,7 +14,7 @@ const SECTION_DIVIDER = '===================>>';
 const MODULE_DIVIDER = '*************';
 
 module.exports = {
-  COLOR,
+  COLORS,
   LINE_DIVIDER,
   SECTION_DIVIDER,
   MODULE_DIVIDER,
