@@ -2,8 +2,8 @@
 
 const { red } = require('./output');
 
-const fatalExit = message => {
-  red(message);
+const fatalExit = (...data) => {
+  red(...data);
   process.exit(1);
 };
 

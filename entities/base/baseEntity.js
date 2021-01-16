@@ -26,7 +26,7 @@ class BaseEntity {
       const entityPath = resolvePath(this._entityDir, fileName);
       return require(entityPath);
     } catch (e) {
-      this._readDataError();
+      this._readDataError(e);
     }
   }
 
@@ -37,7 +37,7 @@ class BaseEntity {
       const entities = onlyJS.map(module => module.replace('.js', ''));
       return entities;
     } catch (e) {
-      this._readDataError();
+      this._readDataError(e);
     }
   }
 
@@ -45,7 +45,7 @@ class BaseEntity {
     try {
       writeFile(this._entityDir, fileName, 'js', data);
     } catch (e) {
-      this._writeDataError();
+      this._writeDataError(e);
     }
   }
 
@@ -53,7 +53,7 @@ class BaseEntity {
     try {
       return readFile(null, this._entityDir, fileName);
     } catch (e) {
-      this._readDataError();
+      this._readDataError(e);
     }
   }
 
@@ -61,7 +61,7 @@ class BaseEntity {
     try {
       return readText(this._entityDir, fileName);
     } catch (e) {
-      this._readDataError();
+      this._readDataError(e);
     }
   }
 
@@ -79,16 +79,22 @@ class BaseEntity {
     }
   }
 
-  _error(message) {
-    fatalExit(message);
+  _error(...data) {
+    fatalExit(...data);
   }
 
-  _readDataError() {
-    fatalExit(`${this._entityName} file is possibly broken, could not read`);
+  _readDataError(e) {
+    fatalExit(
+      `${this._entityName} file is possibly broken, could not read`,
+      { message: e.message, stack: e.stack }
+    );
   }
 
-  _writeDataError() {
-    fatalExit('Could not write file');
+  _writeDataError(e) {
+    fatalExit(
+      'Could not write file',
+      { message: e.message, stack: e.stack }
+    );
   }
 }
 
