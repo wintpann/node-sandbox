@@ -4,22 +4,22 @@ const BaseEntity = require('../base/baseEntity');
 const ModuleTemplate = require('../template/moduleTemplate');
 const SectionTemplate = require('../template/sectionTemplate');
 const { MODULES_DIR } = require('../../config/constants');
-const runModuleConfig = require('../../config/run-module');
 const {
   divideModule,
   divideSection,
   emptyLine
 } = require('../../helpers/output');
+const initModuleHelpers = require('./initModuleHelper');
 
 class Module extends BaseEntity {
   constructor() {
     super();
+    initModuleHelpers();
   }
 
   _initEntity() {
     this._entityName = 'Module';
     this._entityDir = MODULES_DIR;
-    this._runModuleConfig = runModuleConfig;
   }
 
   require(moduleName) {
@@ -34,12 +34,6 @@ class Module extends BaseEntity {
     const sectionsData = SectionTemplate.create(sectionNames);
     const moduleData = ModuleTemplate.create(sectionsData);
     this._save(moduleName, moduleData);
-  }
-
-  run(moduleName) {
-    const moduleRunner = this.require(moduleName);
-    const moduleObj = moduleRunner(this._runModuleConfig);
-    return moduleObj;
   }
 
   exec(moduleObj, moduleName, sectionNames) {
@@ -59,7 +53,7 @@ class Module extends BaseEntity {
   }
 
   start(moduleName, ...sectionNames) {
-    const moduleObj = this.run(moduleName);
+    const moduleObj = this.require(moduleName);
     this.exec(moduleObj, moduleName, sectionNames);
   }
 

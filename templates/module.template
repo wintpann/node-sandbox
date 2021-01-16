@@ -1,13 +1,6 @@
 'use strict';
+const { white, green, yellow, black, red, blue, divide } = global.moduleHelpers;
 
-module.exports = ({
-  divide,
-  green,
-  yellow,
-  white,
-  black,
-  red,
-  blue,
-}) => ({
+module.exports = {
 $SECTIONS$
-});
+};

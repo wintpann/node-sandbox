@@ -6,16 +6,13 @@ const {
   SECTION_DIVIDER,
   MODULE_DIVIDER,
 } = require('../config/output');
-const { curry } = require('./common');
 
-const fancyLog = (color, text) => console.log(color, text);
-
-const green = curry(fancyLog, COLORS.GREEN);
-const yellow = curry(fancyLog, COLORS.YELLOW);
-const white = curry(fancyLog, COLORS.WHITE);
-const black = curry(fancyLog, COLORS.BLACK);
-const red = curry(fancyLog, COLORS.RED);
-const blue = curry(fancyLog, COLORS.BLUE);
+const green = (...args) => console.log(COLORS.GREEN, ...args);
+const yellow = (...args) => console.log(COLORS.YELLOW, ...args);
+const white = (...args) => console.log(COLORS.WHITE, ...args);
+const black = (...args) => console.log(COLORS.BLACK, ...args);
+const red = (...args) => console.log(COLORS.RED, ...args);
+const blue = (...args) => console.log(COLORS.BLUE, ...args);
 
 const divideLine = (text = '') => {
   const output = `${LINE_DIVIDER} ${text.toLowerCase()} ${LINE_DIVIDER}`;

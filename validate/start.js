@@ -23,11 +23,12 @@ module.exports = (moduleName, ...sectionNames) => {
     );
   }
 
-  const moduleFile = Module.require(moduleName);
+  const moduleObject = Module.require(moduleName);
 
   const wrongTypeOfModule =
-    typeof moduleFile !== 'function' ||
-    typeof Module.run(moduleName) !== 'object';
+    typeof moduleObject !== 'object' ||
+    Array.isArray(moduleObject) ||
+    moduleObject === null;
 
   if (wrongTypeOfModule) {
     fatalExit(
@@ -35,7 +36,6 @@ module.exports = (moduleName, ...sectionNames) => {
     );
   }
 
-  const moduleObject = Module.run(moduleName);
   const moduleSections = Object.keys(moduleObject);
   const wrongModuleSections = moduleSections.filter(section => {
     const notFunc = typeof moduleObject[section] !== 'function';

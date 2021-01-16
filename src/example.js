@@ -1,14 +1,7 @@
 'use strict';
+const { white, green, yellow, black, red, blue, divide } = global.moduleHelpers;
 
-module.exports = ({
-  divide,
-  green,
-  yellow,
-  white,
-  black,
-  red,
-  blue,
-}) => ({
+module.exports = {
   'section-example-1': () => {
     const instruction = 'execute your code here';
     white({ instruction });
@@ -22,4 +15,4 @@ module.exports = ({
   'my-custom-section': () => {
     green('separate module code to any sections as you want');
   }
-});
+};

@@ -2,5 +2,4 @@ check if there is no need to create section like 'with-hyphen' when there is no 
 show errors stack && message
 add cache for module
 add readme
-remove runModuleConfig. add its vars to global
 mb add types
