@@ -1,11 +1,11 @@
 'use strict';
 
-const File = require('../helpers/file');
+const File = require('../helpers/fs');
 
-const SOURCE_PATH = File.resolvePath(__dirname, '..', 'src');
-const TEMPLATE_PATH = File.resolvePath(__dirname, '..', 'templates');
+const MODULES_DIR = File.resolvePath(__dirname, '..', 'src');
+const TEMPLATE_DIR = File.resolvePath(__dirname, '..', 'templates');
 
 module.exports = {
-  SOURCE_PATH,
-  TEMPLATE_PATH
+  MODULES_DIR,
+  TEMPLATE_DIR
 };

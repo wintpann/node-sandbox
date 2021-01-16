@@ -1,7 +1,7 @@
 'use strict';
 
-const Module = require('./module');
-const { fatalExit } = require('./process');
+const Module = require('../entities/module/module');
+const { fatalExit } = require('../helpers/process');
 
 module.exports = moduleName => {
   const availableModules = Module.getAvailable();

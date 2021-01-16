@@ -1,8 +1,7 @@
 'use strict';
 
-const Module = require('./module');
-const { fatalExit } = require('./process');
-const runModuleConfig = require('../config/run-module');
+const Module = require('../entities/module/module');
+const { fatalExit } = require('../helpers/process');
 
 module.exports = (moduleName, ...sectionNames) => {
   const availableModules = Module.getAvailable();
@@ -28,7 +27,7 @@ module.exports = (moduleName, ...sectionNames) => {
 
   const wrongTypeOfModule =
     typeof moduleFile !== 'function' ||
-    typeof moduleFile(runModuleConfig) !== 'object';
+    typeof Module.run(moduleName) !== 'object';
 
   if (wrongTypeOfModule) {
     fatalExit(
@@ -36,7 +35,7 @@ module.exports = (moduleName, ...sectionNames) => {
     );
   }
 
-  const moduleObject = moduleFile(runModuleConfig);
+  const moduleObject = Module.run(moduleName);
   const moduleSections = Object.keys(moduleObject);
   const wrongModuleSections = moduleSections.filter(section => {
     const notFunc = typeof moduleObject[section] !== 'function';

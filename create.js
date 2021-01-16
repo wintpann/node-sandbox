@@ -1,13 +1,12 @@
 'use strict';
 
-const Module = require('./helpers/module');
-const validateCreateParams = require('./helpers/validate-create-params');
+const Module = require('./entities/module/module');
+const validateCreateParams = require('./validate/create');
 const { green } = require('./helpers/output');
 
 const [,, moduleName, ...sectionNames] = process.argv;
 validateCreateParams(moduleName);
 
-const newModule = Module.create(sectionNames);
-Module.save(moduleName, newModule);
+Module.create(moduleName, sectionNames);
 
 green('New module was created');
