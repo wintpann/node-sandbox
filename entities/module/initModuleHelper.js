@@ -8,6 +8,8 @@ const {
   red,
   blue,
   divideLine,
+  emptyLine,
+  depth,
 } = require('../../helpers/output');
 
 const moduleHelpers = {
@@ -17,7 +19,9 @@ const moduleHelpers = {
   black,
   red,
   blue,
-  divide: divideLine
+  divide: divideLine,
+  empty: emptyLine,
+  depth,
 };
 
 const initModuleHelpers = () => {

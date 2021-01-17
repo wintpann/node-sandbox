@@ -1,5 +1,5 @@
 'use strict';
-
+const util = require('util');
 const {
   COLORS,
   LINE_DIVIDER,
@@ -7,14 +7,12 @@ const {
   MODULE_DIVIDER,
 } = require('../config/output');
 
-const log = (...args) => console.dir(args, { depth: null });
-
-const green = (...args) => log(COLORS.GREEN, ...args);
-const yellow = (...args) => log(COLORS.YELLOW, ...args);
-const white = (...args) => log(COLORS.WHITE, ...args);
-const black = (...args) => log(COLORS.BLACK, ...args);
-const red = (...args) => log(COLORS.RED, ...args);
-const blue = (...args) => log(COLORS.BLUE, ...args);
+const green = (...args) => console.log(COLORS.GREEN, ...args);
+const yellow = (...args) => console.log(COLORS.YELLOW, ...args);
+const white = (...args) => console.log(COLORS.WHITE, ...args);
+const black = (...args) => console.log(COLORS.BLACK, ...args);
+const red = (...args) => console.log(COLORS.RED, ...args);
+const blue = (...args) => console.log(COLORS.BLUE, ...args);
 
 const divideLine = (text = '') => {
   const output = `${LINE_DIVIDER} ${text.toLowerCase()} ${LINE_DIVIDER}`;
@@ -31,6 +29,8 @@ const divideModule = modName => {
   blue(output);
 };
 
+const depth = obj => util.inspect(obj, { showHidden: false, depth: null, colors: true });
+
 const emptyLine = () => white('');
 
 module.exports = {
@@ -44,4 +44,5 @@ module.exports = {
   divideSection,
   divideModule,
   emptyLine,
+  depth,
 };
