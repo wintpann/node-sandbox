@@ -1,4 +1,5 @@
 'use strict';
+// eslint-disable-next-line no-unused-vars
 const { white, green, yellow, black, red, blue, divide } = global.moduleHelpers;
 
 module.exports = {
