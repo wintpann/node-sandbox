@@ -1,6 +1,8 @@
 # Noderaft
 
-Noderaft is the useful tool that allows you to store your js-things (drafts for example) in one place, group theme and execute
+Noderaft is the useful tool that allows you to store your js-things (drafts for example) in one place, group them and execute
+
+![Image](preview.gif)
 
 ### Installation
 
