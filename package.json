@@ -1,5 +1,5 @@
 {
-  "name": "nodrafter",
+  "name": "noderaft",
   "version": "0.0.0",
   "description": "JS sandbox playground",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "lint": "eslint --quiet --ignore-path .gitignore --fix ./src"
   },
   "bin": {
-    "nodrafter": "index.js"
+    "noderaft": "index.js"
   },
   "keywords": [
     "node",
@@ -19,11 +19,11 @@
   "author": "wintpann",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wintpann/nodrafter.git"
+    "url": "https://github.com/wintpann/noderaft.git"
   },
-  "homepage": "https://github.com/wintpann/nodrafter",
+  "homepage": "https://github.com/wintpann/noderaft",
   "bugs": {
-    "url": "https://github.com/wintpann/nodrafter/issues",
+    "url": "https://github.com/wintpann/noderaft/issues",
     "email": "vvintpann@gmail.com"
   },
   "license": "MIT",

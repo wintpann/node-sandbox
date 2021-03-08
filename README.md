@@ -1,6 +1,6 @@
-# Nodrafter
+# Noderaft
 
-Nodrafter is the useful tool that allows you to store your js-things (drafts for example) in one place, group theme and execute
+Noderaft is the useful tool that allows you to store your js-things (drafts for example) in one place, group theme and execute
 
 ### Installation
 
@@ -8,32 +8,32 @@ All you have to do to get it running is
 1. Create a folder for your js-things `mkdir drafts`
 1. Open that folder `cd drafts`
 1. Initialize empty repo `npm init -y`
-1. Install sandbox `npm install nodrafter`
+1. Install sandbox `npm install noderaft`
 
 ### Examples of usage
 
 After you get prev step done, you can simply use it by 2 commands: `start` and `create`
 
 ```shell script
-npx nodrafter create examples1 functions arrays
+npx noderaft create examples1 functions arrays
 ```
 > creates the file examples1.js with sections 'functions' and 'arrays'
 ---
 
 ```shell script
-npx nodrafter create examples2
+npx noderaft create examples2
 ```
 > creates the file examples2.js with one 'main' section
 ---
 
 ```shell script
-npx nodrafter start examples1 functions arrays
+npx noderaft start examples1 functions arrays
 ```
 > executes the file examples1.js with sections 'functions' and 'arrays'
 ---
 
 ```shell script
-npx nodrafter start examples2
+npx noderaft start examples2
 ```
 > executes the file examples2.js with all its sections
 

@@ -20,11 +20,11 @@ if (noSuchCommand) {
     '\nUse one of the following:'
   );
   console.log(
-    `${COLORS.GREEN}npx nodrafter create`,
+    `${COLORS.GREEN}npx noderaft create`,
     `${COLORS.YELLOW}moduleName sectionName1 sectionNameN${COLORS.WHITE}`,
   );
   console.log(
-    `${COLORS.GREEN}npx nodrafter start`,
+    `${COLORS.GREEN}npx noderaft start`,
     `${COLORS.YELLOW}moduleName sectionName1 sectionNameN${COLORS.WHITE}`,
   );
   process.exit(1);
