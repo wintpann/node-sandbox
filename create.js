@@ -4,9 +4,10 @@ const Module = require('./entities/module/module');
 const validateCreateParams = require('./validate/create');
 const { green } = require('./helpers/output');
 
-const [,, moduleName, ...sectionNames] = process.argv;
-validateCreateParams(moduleName);
+module.exports = (moduleName, ...sectionNames) => {
+  validateCreateParams(moduleName);
 
-Module.create(moduleName, sectionNames);
+  Module.create(moduleName, sectionNames);
 
-green('New module was created');
+  green('New module was created');
+};

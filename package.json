@@ -1,14 +1,32 @@
 {
-  "name": "node-sandbox",
-  "version": "1.0.0",
-  "description": "",
-  "main": "start.js",
+  "name": "nodrafter",
+  "version": "0.0.0",
+  "description": "JS sandbox playground",
+  "main": "index.js",
   "scripts": {
     "lint": "eslint --quiet --ignore-path .gitignore --fix ./src"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "bin": {
+    "nodrafter": "index.js"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "javascript",
+    "sandbox",
+    "playground"
+  ],
+  "author": "wintpann",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wintpann/nodrafter.git"
+  },
+  "homepage": "https://github.com/wintpann/nodrafter",
+  "bugs": {
+    "url": "https://github.com/wintpann/nodrafter/issues",
+    "email": "vvintpann@gmail.com"
+  },
+  "license": "MIT",
   "devDependencies": {
     "eslint": "^7.17.0"
   }

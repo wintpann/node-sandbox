@@ -2,7 +2,7 @@
 
 const File = require('../helpers/fs');
 
-const MODULES_DIR = File.resolvePath(__dirname, '..', 'src');
+const MODULES_DIR = File.resolvePath(global.projectDir, 'src');
 const TEMPLATE_DIR = File.resolvePath(__dirname, '..', 'templates');
 
 module.exports = {

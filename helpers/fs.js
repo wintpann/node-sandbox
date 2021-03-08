@@ -24,10 +24,18 @@ const writeFile = (path, fileName, ext, data) => {
   fs.writeFileSync(fileFullPath, data);
 };
 
+const mkDirIfNotExists = path => {
+  const notExists = !fs.existsSync(path);
+  if (notExists) {
+    fs.mkdirSync(path);
+  }
+};
+
 module.exports = {
   resolvePath,
   readDir,
   readFile,
   readText,
-  writeFile
+  writeFile,
+  mkDirIfNotExists,
 };

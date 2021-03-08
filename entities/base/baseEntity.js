@@ -6,7 +6,7 @@ const {
   readDir,
   readFile,
   readText,
-  writeFile
+  writeFile,
 } = require('../../helpers/fs');
 
 class BaseEntity {

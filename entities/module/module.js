@@ -9,6 +9,7 @@ const {
   divideSection,
   emptyLine
 } = require('../../helpers/output');
+const { mkDirIfNotExists } = require('../../helpers/fs');
 const initModuleHelpers = require('./initModuleHelper');
 
 class Module extends BaseEntity {
@@ -20,6 +21,8 @@ class Module extends BaseEntity {
   _initEntity() {
     this._entityName = 'Module';
     this._entityDir = MODULES_DIR;
+
+    mkDirIfNotExists(MODULES_DIR);
   }
 
   require(moduleName) {
