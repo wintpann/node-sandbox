@@ -4,10 +4,11 @@
   "description": "JS sandbox playground",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint --quiet --ignore-path .gitignore --fix ./src"
+    "lint": "eslint --quiet --ignore-path .gitignore --fix ./src",
+    "postinstall": "node postinstall.js"
   },
   "bin": {
-    "noderaft": "index.js"
+    "nd": "index.js"
   },
   "keywords": [
     "node",

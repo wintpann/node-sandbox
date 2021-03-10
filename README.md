@@ -1,46 +1,40 @@
 # Noderaft
 
-Noderaft is the useful tool that allows you to store your js-things (drafts for example) in one place, group them and execute
+### Problem:
+Imagine if you have a million js drafts/demos/whatever and have to deal with:
+1. Storing it somewhere
+1. Sorting it somehow
+1. Extracting and executing certain parts of it
 
-![Image](preview.gif)
+### Solution:
+Noderaft is the useful tool that allows you to store your js-things in one place, group them and execute (certain parts | all together)
 
+---
 ### Installation
 
 All you have to do to get it running is
 1. Create a folder for your js-things `mkdir drafts`
 1. Open that folder `cd drafts`
 1. Initialize empty repo `npm init -y`
-1. Install sandbox `npm install noderaft`
+1. Install sandbox `npm install noderaft`. It will create a `src` folder in your `drafts` project folder.
 
-### Examples of usage
-
-After you get prev step done, you can simply use it by 2 commands: `start` and `create`
-
-```shell script
-npx noderaft create examples1 functions arrays
+### Primary concepts
+* `Module` is just a file in your `src` folder where your drafts live
+    * Module has one or multiple `sections`
+    * Each module should export an object with `ModuleShape`
+* `Section` is a field of `ModuleShape`
+    * KEY will be the name of section
+    * VALUE is function to be executed
+* `ModuleShape`
+```js
+module.exports = {
+  'section-name': () => {
+    console.log('code to be executed');
+  }
+}
 ```
-> creates the file examples1.js with sections 'functions' and 'arrays'
----
+* `Helpers`. You can use helpers, defined in global object like below.
 
-```shell script
-npx noderaft create examples2
-```
-> creates the file examples2.js with one 'main' section
----
-
-```shell script
-npx noderaft start examples1 functions arrays
-```
-> executes the file examples1.js with sections 'functions' and 'arrays'
----
-
-```shell script
-npx noderaft start examples2
-```
-> executes the file examples2.js with all its sections
-
-### Helpers
-You can use helpers, defined in global object like
 ```js
 module.exports = {
   'section-example-1': () => {
@@ -66,3 +60,30 @@ module.exports = {
 };
 
 ```
+
+### Examples of usage
+
+After you get prev step done, you can simply use it by 2 commands: `start` and `create`
+
+```shell script
+npx nd create examples1 functions arrays
+```
+> creates the file examples1.js with sections 'functions' and 'arrays'
+---
+
+```shell script
+npx nd create examples2
+```
+> creates the file examples2.js with one 'main' section
+---
+
+```shell script
+npx nd start examples1 functions arrays
+```
+> executes the file examples1.js with sections 'functions' and 'arrays'
+---
+
+```shell script
+npx nd start examples2
+```
+> executes the file examples2.js with all its sections
