@@ -3,9 +3,9 @@
 const path = require('path');
 const { mkDirIfNotExists } = require('./helpers/fs');
 const { COLORS } = require('./config/output');
-const projectDir = path.resolve(__dirname, '..', '..');
+const srcDir = path.resolve(__dirname, '..', '..', 'src');
 
-mkDirIfNotExists(projectDir);
+mkDirIfNotExists(srcDir);
 console.log(
   `${COLORS.YELLOW}'/src'${COLORS.GREEN} folder was created!`,
   `\n${COLORS.WHITE}Create your first module with:`,
