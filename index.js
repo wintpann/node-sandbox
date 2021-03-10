@@ -30,4 +30,4 @@ if (noSuchCommand) {
   process.exit(1);
 }
 
-commands[command](moduleName, sectionNames);
+commands[command](moduleName, ...sectionNames);
